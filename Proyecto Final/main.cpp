@@ -29,8 +29,10 @@ void moveCursor(int dx, int dy) {
     if (newX >= SCREEN_WIDTH) newX = 0;
     if (newY < 0) newY = SCREEN_HEIGHT - 1;
     if (newY >= SCREEN_HEIGHT) newY = 0;
+    screen[cursorY][cursorX] = ' ';
     cursorX = newX;
     cursorY = newY;
+    screen[cursorY][cursorX] = '*';
 }
 
 class Shape {
@@ -112,6 +114,14 @@ public:
     }
 };
 
+void showMenu() {
+    cout << "Seleccione una figura:" << endl;
+    cout << "1. Cuadrado" << endl;
+    cout << "2. Círculo" << endl;
+    cout << "3. Triángulo" << endl;
+    cout << "Q. Salir" << endl;
+}
+
 int main() {
     for (int y = 0; y < SCREEN_HEIGHT; y++) {
         for (int x = 0; x < SCREEN_WIDTH; x++) {
@@ -123,10 +133,18 @@ int main() {
     Circle circle;
     Triangle triangle;
 
+    bool drawingMode = false;
+
+    drawScreen();
+
     while (true) {
         if (_kbhit()) {
             char key = _getch();
             switch (key) {
+                case 'm':
+                    drawingMode = true;
+                    showMenu();
+                    break;
                 case 'w':
                     moveCursor(0, -1);
                     break;
@@ -140,33 +158,66 @@ int main() {
                     moveCursor(1, 0);
                     break;
                 case 'f':
-                    square.draw();
+                    if (drawingMode) {
+                        square.draw();
+                        drawingMode = false;
+                    }
                     break;
                 case 'e':
-                    square.erase();
+                    if (drawingMode) {
+                        square.erase();
+                        drawingMode = false;
+                    }
                     break;
                 case 'c':
-                    circle.draw();
+                    if (drawingMode) {
+                        circle.draw();
+                        drawingMode = false;
+                    }
                     break;
                 case 'r':
-                    circle.erase();
+                    if (drawingMode) {
+                        circle.erase();
+                        drawingMode = false;
+                    }
                     break;
                 case 't':
-                    triangle.draw();
+                    if (drawingMode) {
+                        triangle.draw();
+                        drawingMode = false;
+                    }
                     break;
                 case 'g':
-                    triangle.erase();
+                    if (drawingMode) {
+                        triangle.erase();
+                        drawingMode = false;
+                    }
+                    break;
+                case '1':
+                    if (drawingMode) {
+                        square.draw();
+                        drawingMode = false;
+                    }
+                    break;
+                case '2':
+                    if (drawingMode) {
+                        circle.draw();
+                        drawingMode = false;
+                    }
+                    break;
+                case '3':
+                    if (drawingMode) {
+                        triangle.draw();
+                        drawingMode = false;
+                    }
                     break;
                 case 'q':
                     return 0;
             }
+            if (!drawingMode) {
+                drawScreen();
+            }
         }
-
-        screen[cursorY][cursorX] = '*';
-
-        drawScreen();
-
-        screen[cursorY][cursorX] = ' ';
     }
 
     return 0;
