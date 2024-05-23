@@ -128,3 +128,104 @@ Este programa permite dibujar diversas figuras geométricas en la consola. Las f
 
 Si encuentras algún problema o tienes preguntas adicionales, no dudes en consultar el manual técnico o contactar al desarrollador del programa.
 
+
+
+
+
+
+# Manual Técnico
+
+## Descripción del Programa
+Este programa permite dibujar diversas figuras geométricas en la consola utilizando C++. Los usuarios pueden controlar y dibujar figuras geométricas, cambiar el carácter de dibujo, seleccionar el color del carácter, y limpiar la pantalla. También permite guardar y cargar la pantalla desde un archivo.
+
+## Requisitos del Sistema
+- **Sistema Operativo**: Windows
+- **IDE**: CodeBlocks
+- **Compilador**: Compatible con C++
+
+## Estructura del Proyecto
+El proyecto está organizado en un único archivo fuente principal (`main.cpp`). El código se estructura en clases para cada figura geométrica y funciones para manejar la entrada del usuario y el dibujo en la consola.
+
+### Archivo Principal (`main.cpp`)
+Contiene la implementación del programa principal, las definiciones de las clases de figuras geométricas, y las funciones auxiliares.
+
+## Clases y Funciones
+
+### Clase `Shape`
+Clase base abstracta para todas las figuras geométricas. Define los métodos virtuales `draw` y `erase`.
+
+### Clase `Square`
+Derivada de `Shape`. Implementa los métodos `draw` y `erase` para dibujar y borrar un cuadrado.
+
+### Clase `Circle`
+Derivada de `Shape`. Implementa los métodos `draw` y `erase` para dibujar y borrar un círculo.
+
+### Clase `Triangle`
+Derivada de `Shape`. Implementa los métodos `draw` y `erase` para dibujar y borrar un triángulo.
+
+### Clase `Line`
+Derivada de `Shape`. Implementa los métodos `draw` y `erase` para dibujar y borrar una línea.
+
+### Clase `Rhombus`
+Derivada de `Shape`. Implementa los métodos `draw` y `erase` para dibujar y borrar un rombo.
+
+### Clase `Hexagon`
+Derivada de `Shape`. Implementa los métodos `draw` y `erase` para dibujar y borrar un hexágono.
+
+### Función `drawScreen`
+Limpia la consola y dibuja el contenido actual de la pantalla.
+
+### Función `moveCursor`
+Mueve el cursor a la nueva posición y actualiza la pantalla.
+
+### Función `showMenu`
+Muestra el menú de selección de figuras geométricas y otras opciones.
+
+### Función `changeCharacter`
+Permite al usuario cambiar el carácter utilizado para dibujar.
+
+### Función `changeColor`
+Permite al usuario cambiar el color del carácter.
+
+### Función `clearScreen`
+Limpia la pantalla y restablece el contenido.
+
+### Función `saveScreen`
+Guarda el contenido actual de la pantalla en un archivo.
+
+### Función `loadScreen`
+Carga el contenido de un archivo y lo muestra en la pantalla.
+
+## Control del Cursor y Dibujo
+El cursor se controla con las teclas `w`, `s`, `a`, `d`. Las figuras se seleccionan presionando la tecla correspondiente en el menú (`m`). Cada figura requiere datos adicionales, como tamaño, radio o longitud, que se ingresan después de la selección.
+
+### Ejemplo de Dibujo de un Cuadrado
+1. Presiona `m` para abrir el menú.
+2. Selecciona `q` para elegir cuadrado.
+3. Ingresa el tamaño del cuadrado.
+4. Selecciona la orientación usando `w`, `s`, `a`, `d`.
+
+## Colores de Carácter
+El color del carácter se puede cambiar presionando `k` y seleccionando un código de color. El programa utiliza las funciones de la librería `windows.h` para cambiar el color de la consola.
+
+### Ejemplo de Cambio de Color
+1. Presiona `k` para cambiar el color.
+2. Ingresa el código del color deseado.
+
+## Guardar y Cargar Pantallas
+El programa puede guardar el contenido actual de la pantalla en un archivo y cargar contenido desde un archivo.
+
+### Guardar Pantalla
+1. Presiona `g` para guardar la pantalla.
+2. Ingresa el nombre y la ruta del archivo.
+
+### Cargar Pantalla
+1. Presiona `Ctrl + A` para abrir un archivo.
+2. Ingresa la ruta del archivo a abrir.
+
+## Consideraciones Finales
+- Verifica que la pantalla de la consola sea lo suficientemente grande para mostrar todas las figuras.
+- Guarda tu trabajo frecuentemente para evitar la pérdida de datos.
+
+
+
